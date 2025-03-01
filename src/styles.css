@@ -1,0 +1,102 @@
+body {
+  background-color: #e3f2fd;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Background container */
+/* .register-container {
+  background-image: url("/images/bg1.jpg"); 
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+} */
+
+/* Right section (Register Form) */
+.right-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.register-form {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  width: 350px;
+}
+
+.register-form h2 {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+/* Form Input Fields */
+.register-form input {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Submit Button */
+.submit-btn {
+  width: 100%;
+  padding: 10px;
+  background: #64b5f6;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.submit-btn:hover {
+  background: #42a5f5;
+}
+
+/* Left section (Text Display) */
+.left-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  text-align: center;
+}
+
+.left-section h2 {
+  font-size: 2rem;
+  color: white;
+}
+
+/* Social Login Buttons */
+.social-login {
+  margin: 10px 0;
+}
+
+.google-btn {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  background: #db4437;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .left-section {
+    display: none;
+  }
+}
