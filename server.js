@@ -1,27 +1,36 @@
-const mongoose = require('mongoose');
-const express = require('express');
-const cors = require('cors');
-const bodyParser = require('body-parser');
+const express = require("express");
+const mongoose = require("mongoose");
+const cors = require("cors");
+const dotenv = require("dotenv");
 
-// Initialize Express App
+dotenv.config();
+
 const app = express();
-const PORT = 5000;
-
-// Middleware
+app.use(express.json());
 app.use(cors());
-app.use(bodyParser.json());
 
-// Connect to MongoDB
-mongoose.connect('mongodb://127.0.0.1:27017/mern_dashboard') // Use 127.0.0.1 instead of localhost
-    .then(() => console.log('✅ MongoDB Connected'))
-    .catch(err => console.error('MongoDB Connection Error:', err));
+// MongoDB Connection
+mongoose
+  .connect("mongodb://127.0.0.1:27017/finmanager", {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => console.log("✅ MongoDB Connected Successfully!"))
+  .catch((err) => console.error("❌ MongoDB Connection Error:", err));
 
-// Define a test route
-app.get('/api/test', (req, res) => {
-    res.status(200).json({ message: 'API is working!' });
+// Import Routes
+const authRoutes = require("./routes/authRoutes");
+const transactionRoutes = require("./routes/transactions");
+
+// Use Routes
+app.use("/api/auth", authRoutes);
+app.use("/api/transactions", transactionRoutes);
+
+// Example Route
+app.get("/", (req, res) => {
+  res.send("API is running...");
 });
 
-// Start the server
-app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
-});
+// Start Server
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
